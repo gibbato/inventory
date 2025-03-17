@@ -52,6 +52,20 @@
   gap: 30px; /* Adds spacing between bell and profile */
 }
 
+.right button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #0073e6;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.right button:hover {
+  color: #005bb5;
+}
+
 /* Notification Bell */
 .notificationBell {
   width: 24px; /* Adjust size to fit nicely */
@@ -68,6 +82,8 @@
   object-fit: cover;
   cursor: pointer;
 }
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

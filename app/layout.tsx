@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
-import Navbar from "../components/navbar";
+import Navbar from "./components/navbar";
 
 
 
