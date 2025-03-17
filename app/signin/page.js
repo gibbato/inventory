@@ -23,7 +23,7 @@ export default function SignInPage() {
     if (result.error) {
       setError(result.error);
     } else {
-      router.push("/dashboard"); // Redirect to dashboard on success
+      router.push("/"); // Redirect to dashboard on success
     }
   };
 
