@@ -17,11 +17,11 @@ export default function CreateUser() {
 
     const token = localStorage.getItem('token'); // Get the JWT token from localStorage
 
-    const res = await fetch('../../api/auth/createUser', {
+    const res = await fetch('/api/createUser', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Send the token in the Authorization header
+        'Authorization': `Bearer ${token}`, // If using authentication
       },
       body: JSON.stringify({ email, password, name, role }),
     });

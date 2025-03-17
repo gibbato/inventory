@@ -5,9 +5,9 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default NextAuth({
+const handler = NextAuth({
   session: {
-    strategy: "jwt", // Use JWT for sessions
+    strategy: "jwt",
   },
   providers: [
     CredentialsProvider({
@@ -34,25 +34,27 @@ export default NextAuth({
           throw new Error("Invalid credentials");
         }
 
-        return { id: user.id.toString(), email: user.email, role: user.role }; // Convert ID to string
+        return { id: user.id.toString(), email: user.email, role: user.role };
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id; // Store user ID as an integer in the token
-        token.role = user.role; // Store user role in the token
+        token.id = user.id;
+        token.role = user.role;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id; // Attach ID to session user object
-        session.user.role = token.role; // Attach role to session user object
+        session.user.id = token.id;
+        session.user.role = token.role;
       }
       return session;
     },
   },
-  secret: process.env.NEXTAUTH_SECRET, // Ensure this is securely stored in your environment variables
+  secret: process.env.NEXTAUTH_SECRET,
 });
+
+export { handler as GET, handler as POST }; // Required for App Router

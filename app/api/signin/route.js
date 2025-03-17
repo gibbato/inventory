@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import prisma from '../../../../lib/prisma';
-import { comparePassword } from '../../../../utils/hashPassword';
+import prisma from '../../../lib/prisma';
+import { comparePassword } from '../../../utils/hashPassword';
 
 // Handle POST request for sign-in
 export async function POST(req) {
